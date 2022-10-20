@@ -58,7 +58,7 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
 
   protected Button getCloseButton() {
     val button = new Button(VaadinIcon.CLOSE.create());
-    button.addThemeVariants(ButtonVariant.LUMO_ICON, ButtonVariant.LUMO_SMALL);
+    button.addThemeVariants(ButtonVariant.LUMO_ICON, ButtonVariant.LUMO_SMALL, ButtonVariant.LUMO_TERTIARY);
     button.addClassName("aire-overlay-close");
     button.getStyle().set("margin-left", "auto");
     button.addClickListener(event -> cancel());

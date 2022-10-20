@@ -16,20 +16,19 @@ export class Overlay extends LitElement {
   // language=CSS
   static styles = css`
     :host {
-      position: absolute;
       background-color: white;
       z-index: 150;
       display: flex;
       flex-direction: column;
       top: unset;
       left: unset;
-      
     }
     ::slotted(header) {
       height:48px;
       display: flex;
       flex-direction: row;
-      padding: 0 8px;
+      padding: 0 16px;
+      align-items: center;
     }
     
     ::slotted(article) {
@@ -62,10 +61,10 @@ export class Overlay extends LitElement {
   handleResize = () => {
     const host = this.parentElement;
     if (host) {
-      this.style.width = `${host.clientWidth}px`;
-      this.style.height = `${host.clientHeight - 2}px`;
-      this.style.left = 'unset';
-      this.style.top = 'unset';
+      // this.style.width = `${host.clientWidth}px`;
+      // this.style.height = `${host.clientHeight - 2}px`;
+      // this.style.left = 'unset';
+      // this.style.top = 'unset';
     }
   };
 
