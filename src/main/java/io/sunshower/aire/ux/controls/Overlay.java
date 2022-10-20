@@ -5,6 +5,7 @@ import static io.sunshower.aire.ux.controls.Paths.Overlay_STYLES;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.HtmlContainer;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
@@ -32,7 +33,7 @@ import lombok.val;
  * uncomment this if you have deployed this component into NPMJS
  */
 //@NpmPackage(value = "@${organzation}/@aire-overlay", version = Versions.Overlay_VERSION)
-public abstract class Overlay extends HtmlContainer {
+public abstract class Overlay extends HtmlContainer implements HasSize {
 
   /** the header for this overlay */
   @Getter @NonNull private Header header;
@@ -63,6 +64,11 @@ public abstract class Overlay extends HtmlContainer {
     button.addClickListener(event -> cancel());
     return button;
   }
+
+  public void addCloseButton() {
+    getHeader().add(getCloseButton());
+  }
+
 
   public void cancel() {
     getParent().ifPresent(parent -> parent.getElement().removeChild(getElement()));
