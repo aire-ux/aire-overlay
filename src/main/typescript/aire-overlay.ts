@@ -7,7 +7,7 @@ import {
 
 import {
   customElement
-} from "lit/decorators";
+} from "lit/decorators/custom-element.js";
 
 
 @customElement('aire-overlay')
