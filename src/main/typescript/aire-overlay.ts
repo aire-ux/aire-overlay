@@ -1,10 +1,13 @@
 import {
   css,
-  customElement,
   html,
   LitElement
 } from "lit";
-.
+
+
+import {
+  customElement
+} from "lit/decorators";
 
 
 @customElement('aire-overlay')
@@ -21,7 +24,6 @@ export class Overlay extends LitElement {
       top: unset;
       left: unset;
       
-      /*border: 10px solid red;*/
     }
     ::slotted(header) {
       height:48px;

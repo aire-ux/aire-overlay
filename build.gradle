@@ -97,7 +97,8 @@ dependencies {
             'com.vaadin:vaadin-ordered-layout-flow',
             'com.vaadin:flow-html-components',
             'io.sunshower.arcus:arcus-lang',
-            'io.sunshower.arcus:arcus-reflect'
+            'io.sunshower.arcus:arcus-reflect',
+            'io.sunshower.aire:aire-common'
     ].each {
         implementation it
         developmentImplementation it

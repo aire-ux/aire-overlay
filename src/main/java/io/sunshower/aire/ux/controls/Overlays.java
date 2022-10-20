@@ -1,7 +1,7 @@
 package io.sunshower.aire.ux.controls;
 
 import com.vaadin.flow.component.Component;
-import io.sunshower.zephyr.aire.DynamicInstantiator;
+import io.sunshower.aire.components.common.DynamicInstantiator;
 import lombok.val;
 
 public class Overlays {

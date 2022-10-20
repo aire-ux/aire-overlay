@@ -19,10 +19,16 @@
   <properties>
     <aire.version>1.0.22.Final</aire.version>
     <aire-test.version>1.0.9.Final</aire-test.version>
+    <aire-common.version>1.0.8.Final</aire-common.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>io.sunshower.aire</groupId>
+        <artifactId>aire-common</artifactId>
+        <version>${aire-common.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>io.sunshower.aire-test</groupId>

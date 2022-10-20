@@ -1,5 +1,8 @@
 package io.sunshower.aire.ux.controls;
 
+import static io.sunshower.aire.ux.controls.Paths.Overlay_SOURCE;
+import static io.sunshower.aire.ux.controls.Paths.Overlay_STYLES;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HtmlContainer;
@@ -18,8 +21,17 @@ import lombok.NonNull;
 import lombok.val;
 
 @Tag("aire-overlay")
-@JsModule("./aire/ui/components/overlay.ts")
-@CssImport("./styles/aire/ui/components/overlay.css")
+//@JsModule("./aire/ui/components/overlay.ts")
+//@CssImport("./styles/aire/ui/components/overlay.css")
+@JsModule(Overlay_SOURCE)
+@CssImport(Overlay_STYLES)
+//@JsModule("@aire-ux/aire-overlay/aire-overlay")
+//@CssImport("@aire-ux/aire-overlay/styles/aire-overlay.css")
+
+/**
+ * uncomment this if you have deployed this component into NPMJS
+ */
+//@NpmPackage(value = "@${organzation}/@aire-overlay", version = Versions.Overlay_VERSION)
 public abstract class Overlay extends HtmlContainer {
 
   /** the header for this overlay */
