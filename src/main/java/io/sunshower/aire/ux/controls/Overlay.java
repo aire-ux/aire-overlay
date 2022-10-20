@@ -22,17 +22,15 @@ import lombok.NonNull;
 import lombok.val;
 
 @Tag("aire-overlay")
-//@JsModule("./aire/ui/components/overlay.ts")
-//@CssImport("./styles/aire/ui/components/overlay.css")
+// @JsModule("./aire/ui/components/overlay.ts")
+// @CssImport("./styles/aire/ui/components/overlay.css")
 @JsModule(Overlay_SOURCE)
 @CssImport(Overlay_STYLES)
-//@JsModule("@aire-ux/aire-overlay/aire-overlay")
-//@CssImport("@aire-ux/aire-overlay/styles/aire-overlay.css")
+// @JsModule("@aire-ux/aire-overlay/aire-overlay")
+// @CssImport("@aire-ux/aire-overlay/styles/aire-overlay.css")
 
-/**
- * uncomment this if you have deployed this component into NPMJS
- */
-//@NpmPackage(value = "@${organzation}/@aire-overlay", version = Versions.Overlay_VERSION)
+/** uncomment this if you have deployed this component into NPMJS */
+// @NpmPackage(value = "@${organzation}/@aire-overlay", version = Versions.Overlay_VERSION)
 public abstract class Overlay extends HtmlContainer implements HasSize {
 
   /** the header for this overlay */
@@ -58,7 +56,8 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
 
   protected Button getCloseButton() {
     val button = new Button(VaadinIcon.CLOSE.create());
-    button.addThemeVariants(ButtonVariant.LUMO_ICON, ButtonVariant.LUMO_SMALL, ButtonVariant.LUMO_TERTIARY);
+    button.addThemeVariants(
+        ButtonVariant.LUMO_ICON, ButtonVariant.LUMO_SMALL, ButtonVariant.LUMO_TERTIARY);
     button.addClassName("aire-overlay-close");
     button.getStyle().set("margin-left", "auto");
     button.addClickListener(event -> cancel());
@@ -68,7 +67,6 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
   public void addCloseButton() {
     getHeader().add(getCloseButton());
   }
-
 
   public void cancel() {
     getParent().ifPresent(parent -> parent.getElement().removeChild(getElement()));
