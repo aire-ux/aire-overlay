@@ -8,6 +8,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.HtmlContainer;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -33,13 +34,26 @@ import lombok.val;
 // @NpmPackage(value = "@${organzation}/@aire-overlay", version = Versions.Overlay_VERSION)
 public abstract class Overlay extends HtmlContainer implements HasSize {
 
-  /** the header for this overlay */
-  @Getter @NonNull private Header header;
+  /**
+   * the header for this overlay
+   */
+  @Getter
+  @NonNull
+  private Header header;
 
-  /** the footer for this overlay */
-  @Getter @NonNull private Footer footer;
-  /** the content for this overlay */
-  @Getter @NonNull private Article content;
+  /**
+   * the footer for this overlay
+   */
+  @Getter
+  @NonNull
+  private Footer footer;
+  /**
+   * the content for this overlay
+   */
+  @Getter
+  @NonNull
+  private Article content;
+  private Component parent;
 
   protected Overlay() {
     header = createHeader();
@@ -60,7 +74,7 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
         ButtonVariant.LUMO_ICON, ButtonVariant.LUMO_SMALL, ButtonVariant.LUMO_TERTIARY);
     button.addClassName("aire-overlay-close");
     button.getStyle().set("margin-left", "auto");
-    button.addClickListener(event -> cancel());
+    button.addClickListener(event -> close());
     return button;
   }
 
@@ -69,12 +83,18 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
   }
 
   public void cancel() {
-    getParent().ifPresent(parent -> parent.getElement().removeChild(getElement()));
+    UI.getCurrent().access(() -> {
+      val host = Overlays.getActualHost(this);
+      host.getElement().removeChild(getElement());
+    });
     this.fireEvent(new OverlayClosedEvent(this, true));
   }
 
   public void close() {
-    getParent().ifPresent(parent -> parent.getElement().removeChild(getElement()));
+    UI.getCurrent().access(() -> {
+      val host = Overlays.getActualHost(this);
+      host.getElement().removeChild(getElement());
+    });
     this.fireEvent(new OverlayClosedEvent(this, false));
   }
 
@@ -100,4 +120,5 @@ public abstract class Overlay extends HtmlContainer implements HasSize {
     content.getElement().setAttribute("slot", "content");
     return content;
   }
+
 }

@@ -28,7 +28,7 @@ public class Overlays {
             () -> new IllegalArgumentException("Failed to create overlay--did you set a host?"));
   }
 
-  private static Component getActualHost(Component host) {
+  public static Component getActualHost(Component host) {
     var result = host;
     while (result != null && !result.getElement().hasAttribute("aire-overlay-host")) {
       result =

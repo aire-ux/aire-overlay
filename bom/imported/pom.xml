@@ -17,6 +17,7 @@
   <url>https://sunshower.io</url>
 
   <properties>
+    <vaadin.version>23.2.5</vaadin.version>
     <aire.version>1.0.22.Final</aire.version>
     <aire-test.version>1.0.9.Final</aire-test.version>
     <aire-common.version>1.0.8.Final</aire-common.version>
@@ -36,6 +37,13 @@
         <type>pom</type>
         <scope>import</scope>
         <version>${aire-test.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-bom</artifactId>
+        <version>${vaadin.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <dependency>
